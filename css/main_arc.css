@@ -20,8 +20,23 @@
 
 /*address bar*/
 
+.dim-blurred:not(.hasfocus) .SearchField,
+.dim-blurred:not(.hasfocus) .UrlBar-AddressField,
+.dim-blurred:not(.hasfocus) .UrlBar-SearchField{
+    border: none;
+    background-color: color-mix(in srgb, var(--colorBorder) 20%, transparent);
+}
+
 .UrlBar-SearchField, .UrlBar-AddressField, .SearchField {
-    background-color: rgba(var(--colorBg), 0.1);
+    border: none;
+    background-color: color-mix(in srgb, var(--colorBgIntense) 20%, transparent);
+}
+
+.color-behind-tabs-off .UrlBar-SearchField,
+.color-behind-tabs-off .UrlBar-AddressField,
+.color-behind-tabs-off .SearchField {
+    border: none;
+    background-color: color-mix(in srgb, var(--colorBgIntense) 20%, transparent);
 }
 
 .color-behind-tabs-off.address-top#browser:not(.tabs-top):not(.tabs-bottom) .mainbar{
@@ -247,14 +262,18 @@
 }
 
 /*tab stack frame*/
-.dim-blurred:not(.hasfocus) .svg-tab-stack, .dim-blurred:not(.hasfocus) .stack-frame {
-    stroke: var(--colorBorder);
+.color-behind-tabs-off .svg-tab-stack .stack-frame{
+    stroke: none;
 }
-.svg-tab-stack, .stack-frame {
-    stroke: var(--colorBgIntense);
+.dim-blurred:not(.hasfocus) .svg-tab-stack line, .dim-blurred:not(.hasfocus) .svg-tab-selection line,
+.dim-blurred:not(.hasfocus) .stack-frame rect, .dim-blurred:not(.hasfocus) .svg-tab-selection rect {
+    stroke: none;
+    fill: color-mix(in srgb, var(--colorBorder) 20%, transparent);
+    stroke-width: 1px;
 }
-.svg-tab-stack line, .svg-tab-selection line, .svg-tab-stack rect, .svg-tab-selection rect {
-    fill: none;
+color-behind-tabs-off .svg-tab-stack line, .svg-tab-selection line, .svg-tab-stack rect, .svg-tab-selection rect {
+    stroke: none;
+    fill: color-mix(in srgb, var(--colorBgIntense) 20%, transparent);
     stroke-width: 1px;
 }
 
